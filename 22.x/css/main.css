@@ -1,0 +1,58 @@
+*{
+    background: rgba(0,0,0,0.02);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+
+input, button,textarea{
+    border: 1px solid rgba(0,0,0,.02);
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+input{
+    display: block;
+    width: 100%;
+}
+
+.wrap{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.navbar ,.header{
+    text-align: center;
+}
+
+.navbar{
+    background: orangered;
+    text-align: center;
+    color: #f7f3ea;
+    padding: 10px;
+}
+
+.navbar h1{
+    font-size: 24px;
+    margin: 0;
+}
+
+.header{
+    padding:20px 0;
+    color: #555;
+    font-size: 18px;
+}
+
+#alert-sound{
+    display: none;
+}
+
+.task-list .item button{
+    display: none;
+}
+
+.task-list .item:hover button{
+    display: inline-block;
+}
+

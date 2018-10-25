@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="main" id="main">
+    <div class="navbar">
+        <h1>表事情</h1>
+    </div>
+    <div class="header">
+        上王者了吗，就学习？
+    </div>
+    <div id="task-form">
+        <form @submit.prevent="merge" id="task_input">
+        <div class="wrap">
+        <input  v-model="current.title"  type="text" autocomplete="off">
+        <div v-if="current.id" class="detail">
+            <textarea v-model="current.desc"></textarea>
+            <input v-model="current.alert_at" type="datetime-local">
+            <button type="submit">submit</button>
+        </div>
+
+        </div>
+    </form>
+    </div>
+    <div class="task-list">
+        <div class="wrap">
+            未完成
+            <task :todo="todo"
+                  v-if="!todo.completed"
+                  v-for="(todo,index) in list"
+            ></task>
+
+    </div>
+    </div>
+    <div class="task-list">
+        <div class="wrap">
+            已完成
+            <div v-if="todo.completed" v-for="(todo,index) in list" class="item completed">
+                <button @click="toggle_complete(todo.id)">未完成</button>
+                {{todo.title}}
+                <button @click="remove(todo.id)">删除</button>
+                <button @click="set_current(todo)">更新</button>
+            </div>
+    </div>
+</div>
+</div>
+<audio id="alert-sound" src="./sounds/zmi%20-%20Fade.mp3"></audio>
+<template id="task-tpl">
+    <div  class="item">
+        <button @click="action('toggle_complete',todo.id)">完成</button>
+        {{todo.title}}
+        <button @click="action('remove',todo.id)">删除</button>
+        <button @click="action('set_current',todo)">更新</button>
+        <button @click="action('toggle_detail',todo.id)">详情</button>
+        <div v-if="todo.show_detail" class="detail">
+            {{todo.desc || '暂无详情'}} </div>
+    </div>
+</template>
+
+<script src="lib/vue.js"></script>
+<script src="js/myStorage.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

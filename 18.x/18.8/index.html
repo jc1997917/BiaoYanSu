@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <table border="solid">
+        <thead>
+        <tr>
+        <th>品类</th>
+        <th>价格</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>爬行垫</td>
+            <td><input type="text" v-model="mat"></td>
+        </tr>
+        <tr>
+            <td>围栏</td>
+            <td><input type="text" v-model="rail"></td>
+        </tr>
+        <tr>
+            <td>球</td>
+            <td><input type="text" v-model="ball"></td>
+        </tr>
+        <tr>
+            <td>总价</td>
+            <td>{{sum}}</td>
+        </tr>
+        <tr>
+            <td>均价</td>
+            <td>{{average}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </form>
+</div>
+<script src="../lib/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
